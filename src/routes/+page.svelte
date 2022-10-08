@@ -6,11 +6,11 @@
 	<section class="grid grid-cols-1 md:grid-cols-2 items-center gap-10 py-16">
 		<div>
 			<h1 class="text-headline lg:text-6xl md:text-5xl text-4xl font-bold mb-3">
-				Your Youtube Resource Gallery
+				Your YouTube Resource Gallery
 			</h1>
 			<p class="text-lg text-copy tracking-wide">
 				The perfect app to keep track of valuable resources while learning to code. As you come
-				across a helpful video, just add the Youtube video link here.
+				across a helpful video, just add the YouTube video link here.
 			</p>
 		</div>
 		<form>
