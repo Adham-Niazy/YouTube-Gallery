@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 
 export function load({ params }) {
-  if (params.collectionID === 'hello-world') return {
+  if (params.collectionID > 1) return {
     collectionID: params.collectionID
   };
 
