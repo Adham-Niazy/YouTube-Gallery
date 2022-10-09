@@ -45,7 +45,7 @@
 		{/if}
 
 		<button
-			class="bg-accent rounded-lg text-accent-text py-3 px-4 hover:opacity-70 transition font-bold md:w-1/2 w-full font-fira"
+			class="btn-primary"
 			on:click|preventDefault={() => {
 				clicked = true;
 				validate();
