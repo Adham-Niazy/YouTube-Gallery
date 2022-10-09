@@ -2,7 +2,7 @@
 	import { Collection, Navigation, Intro } from '../components';
 </script>
 
-<main class="max-w-6xl mx-auto p-8">
+<div>
 	<Intro />
 
 	<Navigation />
@@ -12,4 +12,4 @@
 			<Collection />
 		{/each}
 	</section>
-</main>
+</div>
