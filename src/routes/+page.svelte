@@ -1,5 +1,5 @@
 <script>
-	import { Collection, Navigation, Intro } from '../components';
+	import { Collection, Navigation, Intro, SelectCollectionModal } from '../components';
 </script>
 
 <div>
@@ -15,3 +15,4 @@
 		{/each}
 	</section>
 </div>
+<SelectCollectionModal />

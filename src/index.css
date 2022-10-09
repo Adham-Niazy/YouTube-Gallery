@@ -18,3 +18,25 @@ body {
 	font-family: Inter;
 	box-sizing: border-box;
 }
+
+/* width */
+.scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+/* Handle */
+.scrollable::-webkit-scrollbar-thumb {
+  background: #ea4c89;
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background: #ea4c89;
+}

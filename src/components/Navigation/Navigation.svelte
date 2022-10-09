@@ -3,7 +3,7 @@
 
 	export let withSearch = false;
 	export let title = '';
-	export let counter = 0;
+	export let counter = null;
 </script>
 
 <nav>
@@ -12,7 +12,7 @@
 	>
 		<li class="text-xl sm:mb-0 mb-3">
 			<span class="text-headline font-bold mr-1">{title}</span>
-			<span class="text-copy/50">{counter}</span>
+			<span class="text-copy/50">{counter === null ? '' : counter}</span>
 		</li>
 
 		{#if withSearch}
