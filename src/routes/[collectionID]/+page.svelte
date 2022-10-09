@@ -1,8 +1,10 @@
 <script>
-  export let data;
-  console.log(data);
+	import { Navigation } from '../../components';
+
+	export let data;
+	const collectionID = data.collectionID;
 </script>
 
 <div>
-  Hello
+	<Navigation title={collectionID.charAt(0).toUpperCase() + collectionID.slice(1)} counter={0} />
 </div>
