@@ -1,5 +1,6 @@
 <script>
 	import { Collection, Navigation, Intro, SelectCollectionModal } from '../components';
+	import { isSelectCollectionOpen, currentVideoID } from '../stores/popupStores';
 </script>
 
 <div>
@@ -15,4 +16,6 @@
 		{/each}
 	</section>
 </div>
-<SelectCollectionModal />
+{#if $isSelectCollectionOpen}
+	<SelectCollectionModal videoID={$currentVideoID} />
+{/if}

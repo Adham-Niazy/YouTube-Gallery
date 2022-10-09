@@ -1,4 +1,6 @@
 <script>
+  import { isSelectCollectionOpen, currentVideoID } from '../../stores/popupStores';
+
 	import Search from '../Search/Search.svelte';
 
 	let clicked = false;
@@ -17,7 +19,8 @@
 			error = 'Not a YouTube Video Link!';
 			return;
 		}
-		error = '';
+    currentVideoID.set(videoID);
+    isSelectCollectionOpen.set(true);
 	}
 
 	function onSearch(e) {
