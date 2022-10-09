@@ -1,10 +1,11 @@
 <script>
+	import Search from '../Search/Search.svelte';
+
 	let clicked = false;
 	let searchField = '';
 	let error = '';
 
 	function validate() {
-		console.log('Called');
 		if (!clicked) return;
 		if (!searchField.includes('youtube.com/watch?v=')) {
 			error = 'Invalid YouTube Link!';
@@ -12,8 +13,6 @@
 		}
 		const searchParams = new URLSearchParams(searchField.split('?')[1]);
 		const videoID = searchParams.get('v');
-		console.log(/[a-zA-Z0-9_-]{11}/.test(searchParams.get('v')));
-		console.log(searchParams.has('v'));
 		if (!searchParams.has('v') || !/[a-zA-Z0-9_-]{11}/.test(searchParams.get('v'))) {
 			error = 'Not a YouTube Video Link!';
 			return;
@@ -39,14 +38,7 @@
 	</div>
 	<form>
 		<label class="text-lg text-copy block font-fira" for="videoId">Video link</label>
-		<input
-			class="w-full my-4 py-3 px-4 outline-none bg-gray-1-background rounded-lg placeholder:text-gray-400 hover:border-accent/30 border-transparent border-2 hover:outline-pale-shadow-accent hover:outline-4 hover:bg-white transition-all duration-500 ease-in-out font-fira"
-			type="text"
-			name="videoId"
-			id="videoId"
-			placeholder="www.youtube.com/watch?v=SR1qcN00cGY"
-			on:input={onSearch}
-		/>
+		<Search on:input={onSearch} type="text" placeholder="www.youtube.com/watch?v=SR1qcN00cGY" extraStyling="py-3 px-4 my-4"/>
 
 		{#if error !== ''}
 			<div class="text-red-500 mb-3">{error}</div>
