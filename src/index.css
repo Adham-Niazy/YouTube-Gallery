@@ -32,11 +32,17 @@ body {
 
 /* Handle */
 .scrollable::-webkit-scrollbar-thumb {
-  background: #ea4c89;
+  background: #00ebc7;
   border-radius: 3px;
 }
 
 /* Handle on hover */
 .scrollable::-webkit-scrollbar-thumb:hover {
-  background: #ea4c89;
+  background: #00ebc7;
+}
+
+.ribbon {
+  transform: rotate(45deg);
+  top: 30px;
+  right: -90px;
 }

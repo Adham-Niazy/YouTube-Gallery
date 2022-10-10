@@ -19,10 +19,15 @@
 			error = 'Not a YouTube Video Link!';
 			return;
 		}
+		reset(videoID);
+	}
+
+	function reset(videoID) {
 		currentVideoID.set(videoID);
 		isSelectCollectionOpen.set(true);
-    searchField = '';
-    error = '';
+		searchField = '';
+		error = '';
+		clicked = false;
 	}
 
 	function onSearch(e) {

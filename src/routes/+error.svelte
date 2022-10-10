@@ -1,4 +1,4 @@
-<section class="h-">
+<section>
 	<div class="w-4/5 mx-auto relative">
 		<h1
 			class="text-5xl sm:text-7xl md:text-9xl text-center font-fira absolute top-0 md:top-10 left-1/2 -translate-x-1/2"

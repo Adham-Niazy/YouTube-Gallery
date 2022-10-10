@@ -65,12 +65,12 @@
 					>
 				</div>
 			{:else}
-				<div class="max-h-52 overflow-y-auto pr-3 scrollable mb-4">
+				<div class={`max-h-52 overflow-y-auto ${$collectionsLength > 3 && 'pr-3'} scrollable mb-4`}>
 					{#each Object.entries($collections) as [collectionName] (collectionName)}
 						<div
-							class={`transition ease-in duration-200 border-2 p-4 mb-2 rounded-lg cursor-pointer hover:text-white hover:bg-accent hover:border-accent ${
-								collectionName === selected && 'bg-accent text-white'
-							} text-headline font-bold`}
+							class={`text-headline transition ease-in duration-200 border-2 p-4 mb-2 rounded-lg cursor-pointer hover:text-white hover:bg-accent hover:border-accent ${
+								collectionName === selected && 'bg-accent !text-white'
+							}  font-bold`}
 							on:click={() => switchSelectedCollection(collectionName)}
 						>
 							<h3>{collectionName}</h3>
@@ -86,7 +86,7 @@
 			{/if}
 
 			<button
-				class="btn-primary mt-7 disabled:opacity-50"
+				class="btn-primary mt-7 disabled:opacity-20"
 				disabled={(selected === '' && !createMode) || (collectionName.length < 3 && createMode)}
 				on:click={addToCollection}
 			>
