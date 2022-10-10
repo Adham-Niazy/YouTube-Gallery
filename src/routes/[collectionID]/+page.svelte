@@ -1,8 +1,9 @@
 <script>
 	import { goto } from '$app/navigation';
 
-	import { Navigation } from '../../components';
+	import { Navigation, VideoModal } from '../../components';
 	import { collections, collectionsLength } from '../../stores/collectionsStore';
+	import { currentVideoID, isWatchVideoOpen } from '../../stores/popupStores';
 
 	export let data;
 	const collectionID = data.collectionID;
@@ -20,7 +21,8 @@
 			}
 			collections.set({ ...$collections, [collectionID]: newVideos });
 		} else {
-			alert('OUT');
+			isWatchVideoOpen.set(true);
+			currentVideoID.set(video);
 		}
 	}
 </script>
@@ -52,3 +54,7 @@
 		{/each}
 	</section>
 </div>
+
+{#if $isWatchVideoOpen}
+	<VideoModal videoID={$currentVideoID} />
+{/if}
