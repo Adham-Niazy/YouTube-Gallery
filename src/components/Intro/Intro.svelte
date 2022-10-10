@@ -1,5 +1,5 @@
 <script>
-  import { isSelectCollectionOpen, currentVideoID } from '../../stores/popupStores';
+	import { isSelectCollectionOpen, currentVideoID } from '../../stores/popupStores';
 
 	import Search from '../Search/Search.svelte';
 
@@ -19,8 +19,10 @@
 			error = 'Not a YouTube Video Link!';
 			return;
 		}
-    currentVideoID.set(videoID);
-    isSelectCollectionOpen.set(true);
+		currentVideoID.set(videoID);
+		isSelectCollectionOpen.set(true);
+    searchField = '';
+    error = '';
 	}
 
 	function onSearch(e) {
@@ -41,7 +43,13 @@
 	</div>
 	<form>
 		<label class="text-lg text-copy block font-fira" for="videoId">Video link</label>
-		<Search on:input={onSearch} type="text" placeholder="www.youtube.com/watch?v=SR1qcN00cGY" extraStyling="py-3 px-4 my-4"/>
+		<Search
+			on:input={onSearch}
+			type="text"
+			placeholder="www.youtube.com/watch?v=SR1qcN00cGY"
+			extraStyling="py-3 px-4 my-4"
+			value={searchField}
+		/>
 
 		{#if error !== ''}
 			<div class="text-red-500 mb-3">{error}</div>
