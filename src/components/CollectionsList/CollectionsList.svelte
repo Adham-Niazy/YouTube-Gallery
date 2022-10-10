@@ -12,6 +12,6 @@
 	{/each}
 </section>
 {#if Object.entries(collectionsObject).length === 0}
-	<h3 class="text-center text-4xl w-full font-fira">You have no collections yet!</h3>
-  <p class="text-center text-xl w-full font-fira mt-3 text-copy">Start creating new one by saving a Video!</p>
+	<h3 class="text-headline lg:text-4xl md:text-2xl text-xl font-bold mb-3 font-fira text-center">You have no collections yet!</h3>
+  <p class="text-center md:text-xl text-sm text-copy tracking-wide">Start creating new one by saving a Video!</p>
 {/if}

@@ -50,7 +50,7 @@
 	on:click={handleClickingOnModal}
 	id="container"
 >
-	<div class="w-1/2 mx-auto bg-white px-10 pt-4 pb-8 rounded-xl">
+	<div class="md:w-1/2 mx-auto bg-white px-10 pt-4 pb-8 rounded-xl">
 		<Navigation title="Add this video to a collection" />
 
 		<div class="mt-5">
