@@ -2,6 +2,7 @@
 	import Navigation from '../Navigation/Navigation.svelte';
 	import Search from '../Search/Search.svelte';
 	import { isSelectCollectionOpen, currentVideoID } from '../../stores/popupStores';
+	import { collections, collectionsLength } from '../../stores/collectionsStore';
 
 	export let videoID = 0;
 
@@ -22,14 +23,20 @@
 	}
 
 	function addToCollection() {
-		if (createMode) console.log(collectionName, videoID);
-		else console.log(selected, videoID);
+		if (createMode) {
+			const newCollection = [videoID];
+			collections.set({ ...$collections, [collectionName]: newCollection });
+			collectionsLength.set($collectionsLength + 1);
+		} else {
+			const newVideos = new Set([videoID, ...$collections[selected]]);
+			collections.set({ ...$collections, [selected]: Array.from(newVideos) });
+		}
 		close();
 	}
 
 	function handleClickingOnModal(e) {
-		const container = document.getElementById('content');
-		if (container !== e.target && !container.contains(e.target)) close();
+		const container = document.getElementById('container');
+		if (container === e.target) close();
 	}
 
 	function close() {
@@ -41,8 +48,9 @@
 <div
 	class="fixed top-0 left-0 bottom-0 right-0 bg-gray-600/70 flex items-center justify-center"
 	on:click={handleClickingOnModal}
+	id="container"
 >
-	<div class="w-1/2 mx-auto bg-white px-10 pt-4 pb-8 rounded-xl" id="content">
+	<div class="w-1/2 mx-auto bg-white px-10 pt-4 pb-8 rounded-xl">
 		<Navigation title="Add this video to a collection" />
 
 		<div class="mt-5">
@@ -58,14 +66,14 @@
 				</div>
 			{:else}
 				<div class="max-h-52 overflow-y-auto pr-3 scrollable mb-4">
-					{#each [1, 2, 3, 4] as collection (collection)}
+					{#each Object.entries($collections) as [collectionName] (collectionName)}
 						<div
 							class={`transition ease-in duration-200 border-2 p-4 mb-2 rounded-lg cursor-pointer hover:text-white hover:bg-accent hover:border-accent ${
-								collection === selected && 'bg-accent text-white'
+								collectionName === selected && 'bg-accent text-white'
 							} text-headline font-bold`}
-							on:click={() => switchSelectedCollection(collection)}
+							on:click={() => switchSelectedCollection(collectionName)}
 						>
-							<h3>Amazing Videos</h3>
+							<h3>{collectionName}</h3>
 						</div>
 					{/each}
 				</div>

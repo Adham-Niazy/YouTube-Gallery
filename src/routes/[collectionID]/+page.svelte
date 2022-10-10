@@ -9,7 +9,7 @@
 <div>
 	<Navigation
 		title={collectionID.charAt(0).toUpperCase() + collectionID.slice(1)}
-		counter={$collectionsLength}
+		counter={($collections[collectionID] || []).length}
 	/>
 
 	<section class="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 py-8">

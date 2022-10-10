@@ -6,13 +6,13 @@
 	export let videos = [];
 </script>
 
-<div class="rounded-lg overflow-hidden cursor-pointer collection">
-	<div class="relative">
+<div class="cursor-pointer collection">
+	<div class="relative rounded-lg overflow-hidden">
 		<!-- overlay -->
-		<div class="absolute top-0 left-0 right-0 bottom-0 bg-white overlay" />
+		<div class="absolute top-0 left-0 right-0 bottom-0 bg-white overlay rounded-br-lg" />
 
 		<img
-			class="thumbnail"
+			class="w-full"
 			src={videos[0] ? `https://i3.ytimg.com/vi/${videos[0]}/sddefault.jpg` : placeholderImg}
 			alt={`Cover for youtube video ${videos[0]}`}
 		/>
