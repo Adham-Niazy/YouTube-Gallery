@@ -7,7 +7,7 @@
 <div>
 	<Intro />
 
-	<Navigation withSearch={true} title="Collections" counter={$collectionsLength} />
+	<Navigation title="Collections" counter={$collectionsLength} />
 
 	<CollectionsList collectionsObject={$collections} />
 </div>
